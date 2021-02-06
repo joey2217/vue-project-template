@@ -45,7 +45,7 @@ export default defineComponent({
           )
         }
       })
-    return () => generateMenus(props.menus)
+    return () => props.menus&&generateMenus(props.menus)
   },
 })
 </script>

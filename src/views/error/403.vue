@@ -19,14 +19,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style scoped>
-.error-page {
-  padding-top: 10vh;
-}
-.error-page .error-img {
-  max-width: 500px;
-  height: 200px;
-  margin: auto;
-}
-</style>
