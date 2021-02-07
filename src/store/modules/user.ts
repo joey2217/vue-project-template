@@ -28,11 +28,7 @@ const user: Module<State, RootState> = {
   state: initState(),
   mutations: {
     SET_TOKEN: (state, payload: string) => {
-      if (payload) {
-        localStorage[LOCAL_TOKEN] = payload
-      } else {
-        localStorage.removeItem(LOCAL_TOKEN)
-      }
+      localStorage[LOCAL_TOKEN] = payload
       state.token = payload
     },
     SET_USER_INFO: (state, payload: UserInfo) => {
@@ -41,6 +37,13 @@ const user: Module<State, RootState> = {
       state.roles = roles
       state.menus = menus
     },
+    RESET: (state) => {
+      localStorage.removeItem(LOCAL_TOKEN)
+      state.token = ''
+      state.username = ''
+      state.roles = []
+      state.menus = []
+    },
   },
   actions: {
     async login({ commit }, loginData: LoginData) {
@@ -48,7 +51,7 @@ const user: Module<State, RootState> = {
       commit('SET_TOKEN', data)
     },
     logout({ commit }) {
-      commit('SET_TOKEN', undefined)
+      commit('RESET')
     },
     async getUserInfo({ commit }) {
       const { data } = await getUserInfo()

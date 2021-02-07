@@ -49,7 +49,7 @@
           class="h-16 flex items-center px-2 hover:bg-gray-50 focus:outline-none"
         >
           <el-avatar :size="40"> Avatar </el-avatar>
-          <span class="ml-2 uppercase">username</span>
+          <span class="ml-2 uppercase">{{ username }}</span>
         </div>
         <template #dropdown>
           <el-dropdown-menu>
